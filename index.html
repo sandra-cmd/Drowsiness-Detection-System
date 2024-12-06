@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drowsiness Detection Program</title>
+</head>
+<body>
+    <h1>Drowsiness Detection Program</h1>
+    
+    <!-- Define buttons to start and stop the program -->
+    <button id="startBtn">Start Program</button>
+    <button id="stopBtn">Stop Program</button>
+
+    <!-- Include JavaScript code -->
+    <script>
+        // Function to start the program
+        function startProgram() {
+            // Execute the Python script to start the program
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "start_detection.php", true);
+            xhr.send();
+            console.log("Program started");
+        }
+
+        // Function to stop the program
+        function stopProgram() {
+            // Terminate the Python script
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "stop_detection.php", true);
+            xhr.send();
+            console.log("Program stopped");
+        }
+
+        // Add click event listeners to the buttons
+        document.getElementById("startBtn").addEventListener("click", startProgram);
+        document.getElementById("stopBtn").addEventListener("click", stopProgram);
+    </script>
+</body>
+</html>
